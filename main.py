@@ -5,7 +5,7 @@ import conf
 import Faker_test
 
 MODEL = json.loads(conf.text_json1)
-#def main():
+
 def modul_title():
     text = open('BOOK.txt', 'r', encoding='utf8')
     s = text.readline()
@@ -56,8 +56,23 @@ author()
 
 # new_json = json.dumps(MODEL, indent=2, ensure_ascii=False)
 # print(new_json)
+def main():
+    new_json = json.dumps(MODEL, indent=2, ensure_ascii=False)
+    print(new_json)
+    # def count(start=1, step=1):
+    #     counter = start
+    #     while True:
+    #         yield counter
+    #         counter += step
+    #
+    # new_json = count(1, 1)
+    # for x in new_json(100):
+    #     print(x)
+    return #new_json*100
+if __name__ == "__main__":
+    main()
 
 
 # dict[i] = {i:[name,phone,job]}
-with open('conf_2.py', 'w', encoding ='utf8') as f:
-    json.dump(MODEL,new_json,indent=2,ensure_ascii=False)
+# with open('conf_2.py', 'w', encoding ='utf8') as f:
+#     json.dumps(MODEL,indent=2,ensure_ascii=False)
