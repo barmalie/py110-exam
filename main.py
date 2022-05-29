@@ -2,18 +2,17 @@ import random
 import json
 
 import conf
-#import Faker_test
+import Faker_test
 
 MODEL = json.loads(conf.text_json1)
 #def main():
 def modul_title():
-    #list = []
     text = open('BOOK.txt', 'r', encoding='utf8')
-    for name_book in text:
-        print(name_book)
-        #
-        MODEL['fields']['title'] = random(name_book)
-        #text.close()
+    s = text.readline()
+    book = s.split(',')
+    book_ = random.choice(book)
+    book_2 = random.choice(book)
+    MODEL['fields']['title'] = book_+','+book_2
 
 modul_title()
 
@@ -40,15 +39,20 @@ def model_rating():
     MODEL['fields']['rating'] = float(random.randint(-5, 5))
     return
 model_rating()
+def modul_isbn13():
+    MODEL['fields']['isbn13'] = Faker_test.index_book
+    return
+modul_isbn13()
 def model_price():
     MODEL['fields']['price'] = float(random.randint(1, 1000))
     return
 model_price()
-# def author():
-#MODEL['fileds']['author'] = [Faker_test.fake.isbn13()]
-#     return
-# author()
-# print(MODEL['pk'])
+def author():
+    MODEL['fields']['author'][1] = Faker_test.name
+    MODEL['fields']['author'][0] = Faker_test.name_2
+    return
+author()
+
 
 new_json = json.dumps(MODEL, indent=2, ensure_ascii=False)
 print(new_json)
