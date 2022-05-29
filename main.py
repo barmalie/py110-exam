@@ -4,19 +4,18 @@ import json
 import conf
 #import Faker_test
 
-def main():
-    text = open('BOOK.txt', 'r', encoding='utf8')
-    for i in text:
-        print(i)
-        text.close()
-
 MODEL = json.loads(conf.text_json1)
+#def main():
+def modul_title():
+    #list = []
+    text = open('BOOK.txt', 'r', encoding='utf8')
+    for name_book in text:
+        print(name_book)
+        #
+        MODEL['fields']['title'] = random(name_book)
+        #text.close()
 
-
-# print(MODEL)
-# print(MODEL['model'])
-# print(type(MODEL['pk']))
-# def my_range(first=1, step=1):
+modul_title()
 
 def modul_pk(start=1, step=1):
     counter = start
@@ -51,5 +50,10 @@ model_price()
 # author()
 # print(MODEL['pk'])
 
-new_json = json.dumps(MODEL, indent=2)
+new_json = json.dumps(MODEL, indent=2, ensure_ascii=False)
 print(new_json)
+
+
+# dict[i] = {i:[name,phone,job]}
+#     with open('DS.txt', 'w', encoding ='utf8') as f:
+#             json.dump(dict,f,indent=4,ensure_ascii=False)
