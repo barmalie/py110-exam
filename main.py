@@ -54,10 +54,10 @@ def author():
 author()
 
 
-new_json = json.dumps(MODEL, indent=2, ensure_ascii=False)
-print(new_json)
+# new_json = json.dumps(MODEL, indent=2, ensure_ascii=False)
+# print(new_json)
 
 
 # dict[i] = {i:[name,phone,job]}
-#     with open('DS.txt', 'w', encoding ='utf8') as f:
-#             json.dump(dict,f,indent=4,ensure_ascii=False)
+with open('conf_2.py', 'w', encoding ='utf8') as f:
+    json.dump(MODEL,new_json,indent=2,ensure_ascii=False)

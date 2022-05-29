@@ -15,10 +15,12 @@ for _ in range(3):
   # choice_name_3 = choice(name_3)
   print(name)
   print(name_2)
-Faker.seed(0)
+
+Faker.seed(100)
 
 for identification_number in range(5):
   index_book = fake.isbn13()
+  # for i in index_book:
   index_book = index_book.split(',')
   choice_index = choice(index_book)
   print(choice_index)
