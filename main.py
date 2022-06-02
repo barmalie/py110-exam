@@ -1,5 +1,6 @@
 import random
 import json
+import itertools
 
 import conf
 import Faker_test
@@ -47,20 +48,15 @@ def main():
     modul_title()
 
     def modul_pk(start=1, step=1):
-        """
-
-        :param start:
-        :param step:
-        :return:
-        """
-        counter = start
+        n = start
         while True:
-            yield counter
-            counter += step
+            yield n
+            n += step
 
-    ranger = modul_pk(1, 1)
-    for _ in range(10):
-        MODEL['pk'] = next(ranger)
+    # ranger = modul_pk(1, 1)
+    # for _ in range(10):
+    #     #MODEL['pk'] = next(ranger)
+        #MODEL['pk'] = count(1,1)
 
     modul_pk()
 
