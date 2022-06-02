@@ -7,12 +7,9 @@ import Faker_test
 MODEL = json.loads(conf.text_json1)
 
 def main():
-    def count():
-        new_json = json.dumps(MODEL, inden=2, ensure_ascii=False)
-        pr = new_json
-        for i in range(1, 10):
-            yield pr
+    print(main())
 
+        
         def modul_title():
             text = open('BOOK.txt', 'r', encoding='utf8')
             s = text.readline()
@@ -82,33 +79,16 @@ def main():
         def author():
             MODEL['fields']['author'][1] = Faker_test.name
             MODEL['fields']['author'][0] = Faker_test.name_2
-        return
+            return
 
 
         author()
 
+        # s = count(5)
+        # print(next(s))
 
-    # new_json = json.dumps(MODEL, indent=2, ensure_ascii=False)
-    # print(new_json)
-        s = count()
-        print(next(s))
-
-
-
-    # new_json = json.dumps(MODEL, inden=2, ensure_ascii=False)
-    # print(new_json)
-
-    # def count(start=1, step=1):
-    #     counter = start
-    #     while True:
-    #         yield counter
-    #         counter += step
-    #
-    # new_json = count(1, 1)
-    # for x in new_json(100):
-    #     print(x)
-    return  # new_json*100
-
+# with open('conf_2.py', 'w', encoding ='utf8') as f:
+#     json.dumps(MODEL,indent=2,ensure_ascii=False)
 
 
 
