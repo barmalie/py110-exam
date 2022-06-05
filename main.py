@@ -186,8 +186,8 @@ def main():
 
         :return:
         """
-        MODEL['fields']['author'][1] = Faker_test.name
-        MODEL['fields']['author'][0] = Faker_test.name_2
+        MODEL['fields']['author'][1] = Faker_test.choice_name
+        MODEL['fields']['author'][0] = Faker_test.choice_name_2
         return
 
     author()
@@ -207,8 +207,8 @@ def main():
 
         :return:
         """
-        MODEL['fields']['author'][1] = Faker_test.name
-        MODEL['fields']['author'][0] = Faker_test.name_2
+        MODEL['fields']['author'][1] = Faker_test.choice_name
+        MODEL['fields']['author'][0] = Faker_test.choice_name_2
         return
 
     author()
