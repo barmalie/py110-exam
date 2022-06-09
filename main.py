@@ -1,9 +1,11 @@
 import random
 import json
 
-import conf
+
+import model
 import faker_
 
+#MODEL = json.loads(model.MODEL_)
 def repeat(number=17):
     """
     ФУНКЦИЯ-ДЕКОРАТОР СЧЕТЧИКА ДЛЯ MAIN
@@ -23,13 +25,13 @@ def repeat(number=17):
     return actual_decorator
 
 
-@repeat(1000)
+@repeat(10)
 def main():
     """
     ОСНОВНАЯ ФУНКЦИЯ ЗАПУСКА ПРОГРАММЫ
     :return:
     """
-    MODEL = json.loads(conf.text_json1)
+    MODEL = json.loads(model.MODEL_)
 
     def modul_title():
         """
@@ -56,12 +58,15 @@ def main():
             yield n
             n += step
 
-    #
+
     ranger = modul_pk()
     for _ in range(11):
         MODEL['pk'] = next(ranger)
 
     modul_pk(10, 1)
+
+
+
 
     def model_year():
         """
@@ -76,7 +81,7 @@ def main():
     def model_pages():
         """
         СЛУЧАЙНОЕ УКАЗАНИЕ СТРАНИЦЫ
-        :return: 
+        :return:
         """
         MODEL['fields']['pages'] = random.randint(1, 1000)
         return
