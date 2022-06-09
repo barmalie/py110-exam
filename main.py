@@ -1,20 +1,16 @@
 import random
 import json
-import itertools
 
 import conf
-import Faker_test
+import faker_
 
-
-MODEL = json.loads(conf.text_json1)
-
-
-def repeat(number=1000):
+def repeat(number=17):
     """
-
+    ФУНКЦИЯ-ДЕКОРАТОР СЧЕТЧИКА ДЛЯ MAIN
     :param number:
     :return:
     """
+
     def actual_decorator(function):
         def wrapper(*args, **kwargs):
             result = None
@@ -27,12 +23,14 @@ def repeat(number=1000):
     return actual_decorator
 
 
-@repeat()
+@repeat(1000)
 def main():
     """
-
+    ОСНОВНАЯ ФУНКЦИЯ ЗАПУСКА ПРОГРАММЫ
     :return:
     """
+    MODEL = json.loads(conf.text_json1)
+
     def modul_title():
         """
 
@@ -47,21 +45,27 @@ def main():
 
     modul_title()
 
+    @repeat()
     def modul_pk(start=1, step=1):
+        """
+        АВТОИНКРЕМЕНТНЫЙ СЧЕТЧИК ПОДСЧЕТА ВЫЗОВОВ ДАННЫХ
+        :return:
+        """
         n = start
         while True:
             yield n
             n += step
 
-    # ranger = modul_pk(1, 1)
-    # for _ in range(10):
-    #     #MODEL['pk'] = next(ranger)
-        #MODEL['pk'] = count(1,1)
+    #
+    ranger = modul_pk()
+    for _ in range(11):
+        MODEL['pk'] = next(ranger)
 
-    modul_pk()
+    modul_pk(10, 1)
+
     def model_year():
         """
-
+        РАНДОМНОЕ УКАЗАНИЕ ГОДА
         :return:
         """
         MODEL['fields']['year'] = random.randint(1990, 2020)
@@ -71,7 +75,7 @@ def main():
 
     def model_pages():
         """
-    
+        СЛУЧАЙНОЕ УКАЗАНИЕ СТРАНИЦЫ
         :return: 
         """
         MODEL['fields']['pages'] = random.randint(1, 1000)
@@ -81,7 +85,7 @@ def main():
 
     def model_rating():
         """
-    
+        СЛУЧАЙНОЕ УКАЗАНИЕ РЕЙТИНГА В ДИАПАЗОНЕ ОТ -5 ДО 5
         :return:
         """
         MODEL['fields']['rating'] = float(random.randint(-5, 5))
@@ -91,17 +95,17 @@ def main():
 
     def modul_isbn13():
         """
-    
+        ИДЕНТИФИКАЦИОННЫЙ НОМЕР КНИГИ ПО ISBN13
         :return:
         """
-        MODEL['fields']['isbn13'] = Faker_test.index_book
+        MODEL['fields']['isbn13'] = faker_.fake.isbn13()
         return
 
     modul_isbn13()
 
     def modul_title():
         """
-
+        НАЗВАНИЕ КНИГИ ЭКСПОРТИРОЕМОЕ ИЗ ТЕКСТОВОГО ФАЙЛА
         :return:
         """
         text = open('BOOK.txt', 'r', encoding='utf8')
@@ -113,27 +117,9 @@ def main():
 
     modul_title()
 
-    def modul_pk(start=1, step=1):
-        """
-
-        :param start:
-        :param step:
-        :return:
-        """
-        counter = start
-        while True:
-            yield counter
-            counter += step
-
-    ranger = modul_pk(1, 1)
-    for _ in range(10):
-        MODEL['pk'] = next(ranger)
-
-    modul_pk()
-
     def model_year():
         """
-
+        СЛУЧАЙНЫЙ ГОД
         :return:
         """
         MODEL['fields']['year'] = random.randint(1990, 2020)
@@ -143,7 +129,7 @@ def main():
 
     def model_pages():
         """
-    
+        СЛУЧАЙНАЯ СТРАНИЦА
         :return:
         """
         MODEL['fields']['pages'] = random.randint(1, 1000)
@@ -153,7 +139,7 @@ def main():
 
     def model_rating():
         """
-
+        ПРОИЗВОЛЬНЫЙ РЕЙТИНГ
         :return:
         """
         MODEL['fields']['rating'] = float(random.randint(-5, 5))
@@ -161,19 +147,9 @@ def main():
 
     model_rating()
 
-    def modul_isbn13():
-        """
-
-        :return:
-        """
-        MODEL['fields']['isbn13'] = Faker_test.index_book
-        return
-
-    modul_isbn13()
-
     def model_price():
         """
-
+        СЛУЧАЙНАЯ ЦЕНА
         :return:
         """
         MODEL['fields']['price'] = float(random.randint(1, 1000))
@@ -183,35 +159,23 @@ def main():
 
     def author():
         """
-
+        СЛУЧАЙНЫЙ АВТОР №1
         :return:
         """
-        MODEL['fields']['author'][1] = Faker_test.choice_name
-        MODEL['fields']['author'][0] = Faker_test.choice_name_2
+        MODEL['fields']['author'][1] = faker_.fake.name()
         return
 
     author()
 
-    def model_price():
+    def author_2():
         """
-
+        СЛУЧАЙНЫЙ АВТОР №2
         :return:
         """
-        MODEL['fields']['price'] = float(random.randint(1, 1000))
+        MODEL['fields']['author'][0] = faker_.fake.name()  # faker_.choice_name_2 #то же самое что и name_2
         return
 
-    model_price()
-
-    def author():
-        """
-
-        :return:
-        """
-        MODEL['fields']['author'][1] = Faker_test.choice_name #то же самое что и name
-        MODEL['fields']['author'][0] = Faker_test.choice_name_2 #то же самое что и name_2
-        return
-
-    author()
+    author_2()
 
     with open('copy.py', 'w', encoding='utf8') as f:
         json.dumps(MODEL, indent=2, ensure_ascii=False)

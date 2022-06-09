@@ -5,9 +5,10 @@ def count(start=1, step=1):
         MODEL['pk'] += step
 
 
-# ranger = modul_pk(1, 1)
-# for _ in range(10):
-#     #MODEL['pk'] = next(ranger)
-#     MODEL['pk'] = ranger
+MODEL['pk'] = count()
+for _ in range(10):
+
+    #MODEL['pk'] = ranger
+    print(next(MODEL['pk']))
 
 modul_pk()
