@@ -1,11 +1,11 @@
 import random
 import json
 
-
 import model
 import faker_
 
-#MODEL = json.loads(model.MODEL_)
+
+# MODEL = json.loads(model.MODEL_)
 def repeat(number=17):
     """
     ФУНКЦИЯ-ДЕКОРАТОР СЧЕТЧИКА ДЛЯ MAIN
@@ -58,15 +58,11 @@ def main():
             yield n
             n += step
 
-
     ranger = modul_pk()
     for _ in range(11):
         MODEL['pk'] = next(ranger)
 
     modul_pk(10, 1)
-
-
-
 
     def model_year():
         """
@@ -177,7 +173,7 @@ def main():
         СЛУЧАЙНЫЙ АВТОР №2
         :return:
         """
-        MODEL['fields']['author'][0] = faker_.fake.name()  # faker_.choice_name_2 #то же самое что и name_2
+        MODEL['fields']['author'][0] = faker_.fake.name()
         return
 
     author_2()
@@ -185,6 +181,7 @@ def main():
     with open('copy.py', 'w', encoding='utf8') as f:
         json.dumps(MODEL, indent=2, ensure_ascii=False)
         print(json.dumps(MODEL, indent=2, ensure_ascii=False))
+        MODEL = json.dumps(model.MODEL_)
 
 
 if __name__ == "__main__":
