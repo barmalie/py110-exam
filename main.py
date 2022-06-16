@@ -25,15 +25,15 @@ def repeat(number=17):
     return actual_decorator
 
 
-@repeat(10)
-def main():
+@repeat(100)
+def main()->dict:
     """
     ОСНОВНАЯ ФУНКЦИЯ ЗАПУСКА ПРОГРАММЫ
     :return:
     """
     MODEL = json.loads(model.MODEL_)
 
-    def modul_title():
+    def modul_title()->str:
         """
         СЛУЧАЙНЫЙ ВЫБОР КНИГИ
         :return:
@@ -48,7 +48,7 @@ def main():
     modul_title()
 
     @repeat()
-    def modul_pk(start=1, step=1):
+    def modul_pk(start=1, step=1)->int:
         """
         АВТОИНКРЕМЕНТНЫЙ СЧЕТЧИК ПОДСЧЕТА ВЫЗОВОВ ДАННЫХ
         :return:
@@ -64,7 +64,7 @@ def main():
 
     modul_pk(10, 1)
 
-    def model_year():
+    def model_year()->int:
         """
         РАНДОМНОЕ УКАЗАНИЕ ГОДА
         :return:
@@ -74,7 +74,7 @@ def main():
 
     model_year()
 
-    def model_pages():
+    def model_pages()->int:
         """
         СЛУЧАЙНОЕ УКАЗАНИЕ СТРАНИЦЫ
         :return:
@@ -84,7 +84,7 @@ def main():
 
     model_pages()
 
-    def model_rating():
+    def model_rating()->float:
         """
         СЛУЧАЙНОЕ УКАЗАНИЕ РЕЙТИНГА В ДИАПАЗОНЕ ОТ -5 ДО 5
         :return:
@@ -94,7 +94,7 @@ def main():
 
     model_rating()
 
-    def modul_isbn13():
+    def modul_isbn13()->str:
         """
         ИДЕНТИФИКАЦИОННЫЙ НОМЕР КНИГИ ПО ISBN13
         :return:
@@ -104,7 +104,7 @@ def main():
 
     modul_isbn13()
 
-    def modul_title():
+    def modul_title()->str:
         """
         НАЗВАНИЕ КНИГИ ЭКСПОРТИРОЕМОЕ ИЗ ТЕКСТОВОГО ФАЙЛА
         :return:
