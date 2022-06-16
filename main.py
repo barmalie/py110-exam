@@ -142,7 +142,8 @@ def main() -> str:
         ПРОИЗВОЛЬНЫЙ РЕЙТИНГ
         :return:
         """
-        MODEL['fields']['rating'] = float(random.randint(-5, 5))
+        #MODEL['fields']['rating'] = float(random.randint(-5, 5))
+        MODEL['fields']['rating'] = random.triangular(-5, 4, 7)
         return
 
     model_rating()
