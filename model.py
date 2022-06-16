@@ -10,7 +10,8 @@ MODEL_ = """{
         "price": 123456.0,
         "author": [
             "test_author_1",
-            "test_author_2"
+            "test_author_2",
+            "test_author_3"
         ]
     }
 }"""

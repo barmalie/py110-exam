@@ -1,20 +1,24 @@
-
-from random import choice
+import random
+from random import choice,sample
 
 from faker import Faker
 
 fake = Faker()
-population = []
-for _ in range(3):
 
+for _ in range(3):
+  population = []
   name = fake.name()
   population.append(name)
-  name_choice = choice(population, 2)
-  print(name_choice)
+
+
+
  
 
 Faker.seed(0)
 for _ in range(5):
   fake.isbn13()
+
+
+
 
 

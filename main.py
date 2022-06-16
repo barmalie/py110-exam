@@ -35,7 +35,7 @@ def main():
 
     def modul_title():
         """
-
+        СЛУЧАЙНЫЙ ВЫБОР КНИГИ
         :return:
         """
         text = open('BOOK.txt', 'r', encoding='utf8')
@@ -158,25 +158,36 @@ def main():
 
     model_price()
 
-    def author():
+    def autor():
         """
-        СЛУЧАЙНЫЙ АВТОР №1
+        ВЫБОР СЛУЧАЙНОГО АВТОРА
         :return:
         """
-        MODEL['fields']['author'][1] = faker_.fake.name()
-        return
 
-    author()
+        def autor1():
+            MODEL['fields']['author'][0] = faker_.fake.name()
 
-    def author_2():
-        """
-        СЛУЧАЙНЫЙ АВТОР №2
-        :return:
-        """
-        MODEL['fields']['author'][0] = faker_.fake.name()
-        return
 
-    author_2()
+
+
+        def autor2():
+            MODEL['fields']['author'][0] = faker_.fake.name()
+            MODEL['fields']['author'][1] = faker_.fake.name()
+
+
+
+
+        def autor3():
+            MODEL['fields']['author'][0] = faker_.fake.name()
+            MODEL['fields']['author'][1] = faker_.fake.name()
+            MODEL['fields']['author'][2] = faker_.fake.name()
+
+        list = [autor1(),autor2(), autor3()]
+        for i in list:
+
+            return i
+
+    autor()
 
     with open('copy.py', 'w', encoding='utf8') as f:
         json.dumps(MODEL, indent=2, ensure_ascii=False)
