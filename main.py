@@ -1,11 +1,10 @@
 import random
 import json
 
+import copy
 import model
 import faker_
 
-
-# MODEL = json.loads(model.MODEL_)
 def repeat(number=17):
     """
     ФУНКЦИЯ-ДЕКОРАТОР СЧЕТЧИКА ДЛЯ MAIN
@@ -26,14 +25,14 @@ def repeat(number=17):
 
 
 @repeat(100)
-def main()->dict:
+def main() -> str:
     """
     ОСНОВНАЯ ФУНКЦИЯ ЗАПУСКА ПРОГРАММЫ
     :return:
     """
     MODEL = json.loads(model.MODEL_)
 
-    def modul_title()->str:
+    def modul_title() -> str:
         """
         СЛУЧАЙНЫЙ ВЫБОР КНИГИ
         :return:
@@ -48,7 +47,7 @@ def main()->dict:
     modul_title()
 
     @repeat()
-    def modul_pk(start=1, step=1)->int:
+    def modul_pk(start=1, step=1) -> int:
         """
         АВТОИНКРЕМЕНТНЫЙ СЧЕТЧИК ПОДСЧЕТА ВЫЗОВОВ ДАННЫХ
         :return:
@@ -64,7 +63,7 @@ def main()->dict:
 
     modul_pk(10, 1)
 
-    def model_year()->int:
+    def model_year() -> int:
         """
         РАНДОМНОЕ УКАЗАНИЕ ГОДА
         :return:
@@ -74,7 +73,7 @@ def main()->dict:
 
     model_year()
 
-    def model_pages()->int:
+    def model_pages() -> int:
         """
         СЛУЧАЙНОЕ УКАЗАНИЕ СТРАНИЦЫ
         :return:
@@ -84,7 +83,7 @@ def main()->dict:
 
     model_pages()
 
-    def model_rating()->float:
+    def model_rating() -> float:
         """
         СЛУЧАЙНОЕ УКАЗАНИЕ РЕЙТИНГА В ДИАПАЗОНЕ ОТ -5 ДО 5
         :return:
@@ -94,7 +93,7 @@ def main()->dict:
 
     model_rating()
 
-    def modul_isbn13()->str:
+    def modul_isbn13() -> str:
         """
         ИДЕНТИФИКАЦИОННЫЙ НОМЕР КНИГИ ПО ISBN13
         :return:
@@ -104,7 +103,7 @@ def main()->dict:
 
     modul_isbn13()
 
-    def modul_title()->str:
+    def modul_title() -> str:
         """
         НАЗВАНИЕ КНИГИ ЭКСПОРТИРОЕМОЕ ИЗ ТЕКСТОВОГО ФАЙЛА
         :return:
@@ -118,7 +117,7 @@ def main()->dict:
 
     modul_title()
 
-    def model_year():
+    def model_year() -> int:
         """
         СЛУЧАЙНЫЙ ГОД
         :return:
@@ -128,7 +127,7 @@ def main()->dict:
 
     model_year()
 
-    def model_pages():
+    def model_pages() -> int:
         """
         СЛУЧАЙНАЯ СТРАНИЦА
         :return:
@@ -138,7 +137,7 @@ def main()->dict:
 
     model_pages()
 
-    def model_rating():
+    def model_rating() -> float:
         """
         ПРОИЗВОЛЬНЫЙ РЕЙТИНГ
         :return:
@@ -148,7 +147,7 @@ def main()->dict:
 
     model_rating()
 
-    def model_price():
+    def model_price() -> float:
         """
         СЛУЧАЙНАЯ ЦЕНА
         :return:
@@ -158,33 +157,26 @@ def main()->dict:
 
     model_price()
 
-    def autor():
+    def autor() -> str:
         """
         ВЫБОР СЛУЧАЙНОГО АВТОРА
         :return:
         """
 
-        def autor1():
+        def autor1() -> str:
             MODEL['fields']['author'][0] = faker_.fake.name()
 
-
-
-
-        def autor2():
+        def autor2() -> str:
             MODEL['fields']['author'][0] = faker_.fake.name()
             MODEL['fields']['author'][1] = faker_.fake.name()
 
-
-
-
-        def autor3():
+        def autor3() -> str:
             MODEL['fields']['author'][0] = faker_.fake.name()
             MODEL['fields']['author'][1] = faker_.fake.name()
             MODEL['fields']['author'][2] = faker_.fake.name()
 
-        list = [autor1(),autor2(), autor3()]
+        list = [autor1(), autor2(), autor3()]
         for i in list:
-
             return i
 
     autor()
@@ -192,7 +184,8 @@ def main()->dict:
     with open('copy.py', 'w', encoding='utf8') as f:
         json.dumps(MODEL, indent=2, ensure_ascii=False)
         print(json.dumps(MODEL, indent=2, ensure_ascii=False))
-        MODEL = json.dumps(model.MODEL_)
+
+    f.close()
 
 
 if __name__ == "__main__":
